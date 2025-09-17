@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Joueurs</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        .icon-active {
+            color: #fde047;
+        }
+        @media (min-width: 768px) {
+            body {
+                background: #f3f4f6;
+            }
+            #joueurs-list {
+                max-width: 600px;
+                margin: 2rem auto;
+                box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+            }
+            .list-row {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+                padding: 1.5rem 1rem;
+            }
+            .list-row img {
+                width: 80px;
+                height: 80px;
+            }
+            .list-col-grow {
+                flex: 1;
+            }
+            .text-4xl {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<header class="sticky top-0 bg-sky-900 z-10 p-4 pb-2 text-xs opacity-100 tracking-wide shadow flex items-center justify-between">
+    <span class="text-lg font-bold text-white">
+        Liste des joueurs
+    </span>
+    <div class="flex gap-2">
+        <button class="btn btn-square btn-ghost" title="Trier par niveau">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+            <path fill-rule="evenodd" d="M13.5 4.938a7 7 0 1 1-9.006 1.737c.202-.257.59-.218.793.039.278.352.594.672.943.954.332.269.786-.049.773-.476a5.977 5.977 0 0 1 .572-2.759 6.026 6.026 0 0 1 2.486-2.665c.247-.14.55-.016.677.238A6.967 6.967 0 0 0 13.5 4.938ZM14 12a4 4 0 0 1-4 4c-1.913 0-3.52-1.398-3.91-3.182-.093-.429.44-.643.814-.413a4.043 4.043 0 0 0 1.601.564c.303.038.531-.24.51-.544a5.975 5.975 0 0 1 1.315-4.192.447.447 0 0 1 .431-.16A4.001 4.001 0 0 1 14 12Z" clip-rule="evenodd" />
+            </svg>
+        </button>
+        <button class="btn btn-square btn-ghost" title="Trier par initiales">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0Zm-5.5-2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0ZM10 12a5.99 5.99 0 0 0-4.793 2.39A6.483 6.483 0 0 0 10 16.5a6.483 6.483 0 0 0 4.793-2.11A5.99 5.99 0 0 0 10 12Z" clip-rule="evenodd" />
+            </svg>
+        </button>
+    </div>
+</header>
+
+
+<ul id="joueurs-list" class="list bg-base-100 rounded-box shadow-md">
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Aj.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Arnaud Jonglez</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0680950978">0680950978</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Aj</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Alexandre Mery</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0667429449">0667429449</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Am</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Antoine Destailleurs</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0622890004">0622890004</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">An</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Ar.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Antoine Rocco</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0614207129">0614207129</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Ar</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Alexis Lesueur</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:"></a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">As</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Arnaud Verhaeghe</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0759583596">0759583596</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Av</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Christophe Dupont</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0766220611">0766220611</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Cd</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Dl.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">David Lheureux</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0682578273">0682578273</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Dl</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Dominik(que) Stucki</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0663592491">0663592491</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Ds</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Eric De Saint Blanquat</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0613402766">0613402766</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Eb</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Eric Cassou</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0674882417">0674882417</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Ee</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Etienne Geron</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0633569814">0633569814</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Eg</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Etienne Lallemand</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0637752291">0637752291</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">El</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Eric Neveu</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0677997625">0677997625</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">En</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Fc.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Florent Charlet</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0664641916">0664641916</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Fc</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Fabien Mazouer</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0608629602">0608629602</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Fm</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Gd.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Gilles Desramault</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0685785132">0685785132</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Gd</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Grégoire Lecherf</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0622291668">0622291668</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Gl</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Gr.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Grégoire Deleplanque</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0684825982">0684825982</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Gr</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Harold Martho</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0671367714">0671367714</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Ha</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Hughes Vandeputte</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0651059478">0651059478</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Hv</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Ir.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Isabelle Richard</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0603085250">0603085250</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Ir</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Jc.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Jimmy Culiez</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0645403964">0645403964</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Jc</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Kim Sanoner</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0616926956">0616926956</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Ks</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Lb.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Laurent Benichou</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0609801597">0609801597</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Lb</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Louis Charlet</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:068535394">068535394</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Lc</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Lionel Decoene</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0660038003">0660038003</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Ld</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Mb.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Marie Billoré</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0628012764">0628012764</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Mb</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Md.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Manu Degruson</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0781560040">0781560040</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Md</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Mn.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Maxime Chandelier</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0671399499">0671399499</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Mn</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Marc Sanoner</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0616926956">0616926956</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Ms</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Mt.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Mathieu Lechantre</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0609807821">0609807821</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Mt</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Nicolas Malingrey</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0635111913">0635111913</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Ni</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Nw.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Nicolas Wemaux</div>
+	<div class="text-xs">Niveau : 5</div>
+	<div class="text-xs">Position : Droite</div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0666803994">0666803994</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Nw</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Ob.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Olivier Bazain</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0660166485">0660166485</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Ob</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Olivier Broc</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0647716311">0647716311</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Oc</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Ov.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Olivier Vallée</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0674836451">0674836451</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Ov</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Pj.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Pierric Jourdain</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0622084456">0622084456</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Pj</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Pierre-D Lacourte</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0676718716">0676718716</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Pl</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Quynh Thy - Duong</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0689268404">0689268404</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Qt</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/Rb.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Régis Bardyn</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0615289696">0615289696</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Rb</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Robin Rousseaux</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0664443561">0664443561</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Ro</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Severine Lambert</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0672006666">0672006666</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Sb</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Sonia Herbomez</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0676193120">0676193120</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Sh</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Stephane Lherbier</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0658530285">0658530285</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Sl</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Théophile Planck</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0640187807">0640187807</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Tp</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Vincent Couturier</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0608620902">0608620902</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Vc</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/defaut.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Valerie Rocco</div>
+	<div class="text-xs"></div>
+	<div class="text-xs"></div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0614207129">0614207129</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">Vr</div>
+	</li>
+	
+
+	<li class="list-row">
+	<div>
+	<img class="size-20 rounded-box" src="img/joueur/W.png"/>
+	</div>
+	<div class="list-col-grow">
+	<div class="font-bold">Fabrice</div>
+	<div class="text-xs">Niveau : 5+</div>
+	<div class="text-xs">Position : Droite</div>
+	<div class="text-xs uppercase font-semibold opacity-60 pt-2 inline-flex items-center gap-1">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4"><path d="M7.25 11.5a.75.75 0 0 0 0 1.5h1.5a.75.75 0 0 0 0-1.5h-1.5Z" /><path fill-rule="evenodd" d="M6 1a2.5 2.5 0 0 0-2.5 2.5v9A2.5 2.5 0 0 0 6 15h4a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 10 1H6Zm4 1.5h-.5V3a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5v-.5H6a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-9a1 1 0 0 0-1-1Z" clip-rule="evenodd" /></svg>
+	<a href="tel:0665767299">0665767299</a>
+	</div>
+	</div>
+	<div class="text-4xl font-thin opacity-30 tabular-nums">W</div>
+	</li>
+
+</ul>
+
+<script language="javascript">
+
+let sortState = {
+    niveau: false,
+    initiales: false
+};
+
+function sortList(by) {
+    sortState[by] = !sortState[by];
+    const desc = sortState[by];
+
+    // Gestion couleur icône
+    document.querySelectorAll('.btn-square.btn-ghost').forEach(btn => {
+        btn.querySelector('svg').classList.remove('icon-active');
+    });
+    const btn = document.querySelector(`[title="Trier par ${by}"]`);
+    btn.querySelector('svg').classList.add('icon-active');
+
+    const ul = document.getElementById('joueurs-list');
+    const items = Array.from(ul.querySelectorAll('li.list-row'));
+    items.sort((a, b) => {
+        let va, vb;
+        if (by === 'niveau') {
+            va = a.querySelector('.text-xs') ? a.querySelector('.text-xs').textContent.replace('Niveau : ', '') : '';
+            vb = b.querySelector('.text-xs') ? b.querySelector('.text-xs').textContent.replace('Niveau : ', '') : '';
+            return desc ? vb.localeCompare(va, undefined, {numeric: true}) : va.localeCompare(vb, undefined, {numeric: true});
+        } else if (by === 'initiales') {
+            va = a.querySelector('.text-4xl') ? a.querySelector('.text-4xl').textContent : '';
+            vb = b.querySelector('.text-4xl') ? b.querySelector('.text-4xl').textContent : '';
+            return desc ? vb.localeCompare(va) : va.localeCompare(vb);
+        }
+        return 0;
+    });
+    items.forEach(item => ul.appendChild(item));
+}
+
+document.querySelector('[title="Trier par niveau"]').onclick = () => sortList('niveau');
+document.querySelector('[title="Trier par initiales"]').onclick = () => sortList('initiales');
+
+</script>
+
+</body>
+</html>
